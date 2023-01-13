@@ -1,22 +1,40 @@
-import React from 'react';
+import React from "react";
+import FigureSVG from "../atoms/FigureSVG";
+import InputColor from "../atoms/InputColor";
+import InputNumber from "../atoms/InputNumber";
+import Label from "../atoms/Label";
 
-const Figure = ({ children, size, color, handle, style }) => {
-   return (
-      <>
-         <h3>{children}</h3>
-         <div style={{ minHeight: '150px' }}>
-            <p style={style}></p>
-         </div>
-         <div style={{ marginBottom: '10px' }}>
-            <label>{children} size: </label>
-            <input id={children} name="size" onChange={handle} style={{ width: '50px' }} type="number" value={size} />
-         </div>
-         <div>
-            <label>{children} color: </label>
-            <input name="color" onChange={handle} style={{ width: '70px' }} type="color" value={color} />
-         </div>
-      </>
-   );
+const Figures = ({ children, color, handle, size, style }) => {
+  return (
+    <>
+      <h3>{children}</h3>
+      <div style={{ minHeight: "125px", padding: "25px" }}>
+        <FigureSVG style={style} />
+      </div>
+      <div style={{ marginBottom: "10px" }}>
+        <Label children={children} info="size:" />
+        <InputNumber
+          children={children}
+          handle={handle}
+          name="size"
+          size={size}
+          style={{ width: "50px" }}
+          type="number"
+        />
+      </div>
+      <div>
+        <Label children={children} info="color:" />
+        <InputColor
+          children={children}
+          color={color}
+          handle={handle}
+          name="color"
+          style={{ width: "70px" }}
+          type="color"
+        />
+      </div>
+    </>
+  );
 };
 
-export default Figure;
+export default Figures;
