@@ -1,18 +1,13 @@
-import React from 'react';
-import FigureSVG from '../atoms/FigureSVG';
-import InputColor from '../atoms/InputColor';
-import InputNumber from '../atoms/InputNumber';
-import Label from '../atoms/Label';
-// import figure from '../atoms/figures';
+import { TriangleSVG, InputColor, InputNumber, Label } from '../atoms';
 
-const Figures = ({ children, color, handle, size, style }) => {
+export const Triangle = ({ children, size, color, handle }) => {
    return (
-      <>
-         <h3>{children}</h3>
-         <div style={{ minHeight: '125px', padding: '25px' }}>
-            <FigureSVG style={style} />
+      <div style={{ display: 'block', marginBottom: '8px' }}>
+         <h2>{children}</h2>
+         <div style={{ minHeight: '200px', display: 'grid', placeContent: 'center' }}>
+            <TriangleSVG color={color} size={size} />
          </div>
-         <div style={{ marginBottom: '10px' }}>
+         <div style={{ margin: '10px' }}>
             <Label children={children} info="size:" />
             <InputNumber
                children={children}
@@ -34,8 +29,6 @@ const Figures = ({ children, color, handle, size, style }) => {
                type="color"
             />
          </div>
-      </>
+      </div>
    );
 };
-
-export default Figures;
