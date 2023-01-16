@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { InputColor, Label } from '../atoms';
 
 export const InputColorGroup = ({ color, handle, name }) => {
-   console.log('name', `${name}-color`);
    return (
       <div>
          <Label htmlFor={`${name}-color`}>color: </Label>
-         <InputColor color={color} handle={handle} name={`${name}-color`} style={{ width: '70px' }} />
+         <InputColor color={color} handle={handle} name="color" id={`${name}-color`} style={{ width: '70px' }} />
       </div>
    );
 };
