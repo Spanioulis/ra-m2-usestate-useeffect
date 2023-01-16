@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Triangle, Circle, Square } from './components/molecules';
+import { Triangle, Circle, Square } from './components/organisms';
 
 import './styles/styles.css';
 
@@ -10,15 +10,27 @@ function App() {
    const [square, setSquare] = useState({ size: 100, color: '#F9C606' });
 
    const handleTriangle = (e) => {
-      setTriangle({ ...triangle, [e.target.name]: e.target.value });
+      if (e.target.name === 'size') {
+         setTriangle({ ...triangle, [e.target.name]: +e.target.value });
+      } else {
+         setTriangle({ ...triangle, [e.target.name]: e.target.value });
+      }
    };
 
    const handleCircle = (e) => {
-      setCircle({ ...circle, [e.target.name]: e.target.value });
+      if (e.target.name === 'size') {
+         setCircle({ ...circle, [e.target.name]: +e.target.value });
+      } else {
+         setCircle({ ...circle, [e.target.name]: e.target.value });
+      }
    };
 
    const handleSquare = (e) => {
-      setSquare({ ...square, [e.target.name]: e.target.value });
+      if (e.target.name === 'size') {
+         setSquare({ ...square, [e.target.name]: +e.target.value });
+      } else {
+         setSquare({ ...square, [e.target.name]: e.target.value });
+      }
    };
 
    useEffect(() => {
@@ -37,16 +49,13 @@ function App() {
       <div className="App">
          <h1>Tarea useState y useEffect</h1>
          <div className="figure-container">
-            <Triangle color={triangle.color} handle={handleTriangle} name="square" size={triangle.size}>
-               {' '}
+            <Triangle color={triangle.color} handle={handleTriangle} size={triangle.size}>
                Triangle
             </Triangle>
-            <Circle color={circle.color} handle={handleCircle} name="square" size={circle.size}>
-               {' '}
+            <Circle color={circle.color} handle={handleCircle} size={circle.size}>
                Circle
             </Circle>
-            <Square color={square.color} handle={handleSquare} name="square" size={square.size}>
-               {' '}
+            <Square color={square.color} handle={handleSquare} size={square.size}>
                Square
             </Square>
          </div>

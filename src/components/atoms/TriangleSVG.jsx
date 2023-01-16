@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const TriangleSVG = ({ color, size }) => {
    return (
       <svg width={`${size}px`} height={`${size}px`}>
@@ -8,4 +10,9 @@ export const TriangleSVG = ({ color, size }) => {
          />
       </svg>
    );
+};
+
+TriangleSVG.propTypes = {
+   size: PropTypes.number,
+   color: PropTypes.string
 };
